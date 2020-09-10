@@ -47,7 +47,7 @@ if ! has_node; then
 fi
 
 if has_node; then
-	node "$@"
+	ESM_OPTIONS='{"await":true}' node --require esm "$@"
 else
 	if [[ -z $RUN_NODE_ERROR_MSG ]]; then
 		echo "Couldn't find the Node.js binary. Ensure you have Node.js installed. Open an issue on https://github.com/sindresorhus/run-node"
